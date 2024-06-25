@@ -8,6 +8,6 @@ For example, with this complex nested header table found in the PDF of the Natio
 Asking this question:  
 "What is the Current limitations of a Inherently Limited Power Source (Overcurrent Protection Not Required) with a source voltage of 10 volts?"
 
-The AI correctly answers with this information:  
+The AI correctly answers with this information (the answer is correct: 8 amps):  
 
 ![image](https://github.com/rcorvus/PDFTableRAG/assets/5025458/22444551-7a64-45cb-9d57-3f1005b58406)
