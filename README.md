@@ -15,3 +15,5 @@ What is the Maximum overcurrent protection (amperes) for a Direct-Current Not In
 
 The AI correctly answers with this information from Table 11 (B) (the answer is correct: 100/V max):  
 "The Maximum overcurrent protection (amperes) for a Direct-Current Not Inherently Limited Power Source (Overcurrent Protection Required) with a source voltage of 75 volts is 100/V, max."  
+
+Currently, all PDF table extractors require a paid API since it take specialized bounding and OCR to find and extract table data from PDFs. This example uses Unstructured which gives you 1000 pages for free, you can create your account to get your API key here: unstructured.io  
