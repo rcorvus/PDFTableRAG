@@ -16,5 +16,23 @@ What is the Maximum overcurrent protection (amperes) for a Direct-Current Not In
 The AI correctly answers with this information from Table 11 (B) (the answer is correct: 100/V max):  
 "The Maximum overcurrent protection (amperes) for a Direct-Current Not Inherently Limited Power Source (Overcurrent Protection Required) with a source voltage of 75 volts is 100/V, max."  
 
+##How to measure success?
+
+Since the answer comes back in a conversational sentence, we can do a quick call to ChatGpt to compare the answers given to the correct answer.
+
+```
+Does the Given answer have the same information as the Correct answer?
+
+Given answer:  The Maximum overcurrent protection (amperes) for a Direct-Current Not Inherently Limited Power Source (Overcurrent Protection Required) with a source voltage of 75 volts is 100/V, max.
+SOURCES: 2017-NEC-Code-2-table11AandB.pdf
+
+Correct answer: The Maximum overcurrent protection in amperes for a Direct-Current Not Inherently Limited Power Source (requiring Overcurrent Protection) with a source voltage of 75 volts is 100/V, max.
+```
+
+Which correctly evaluates the following:
+```
+Yes, the given answer and the correct answer have the same information. They both state the maximum overcurrent protection in amperes for a Direct-Current Not Inherently Limited Power Source with a source voltage of 75 volts, which is 100/V, max.
+```
+
 ## How to get the API key  
 Currently, all PDF table extractors require a paid API since it take specialized bounding and OCR to find and extract table data from PDFs. This example uses Unstructured which gives you 1000 pages for free, you can create your account to get your API key here: unstructured.io  
