@@ -135,6 +135,18 @@ def ask_vector_store():
     correctAnswer2 = "The Maximum overcurrent protection in amperes for a Direct-Current Not Inherently Limited Power Source (requiring Overcurrent Protection) with a source voltage of 75 volts is 100/V, max."
     evaluate_answer(answer2, correctAnswer2)
 
+    question3 = "What is the airspeed velocity of an unladen African swallow?"
+    answer3 = qa_chain.invoke({
+        "question": question3,
+        "chat_history": [],
+        "filter": filter,
+    })["answer"]
+
+    print(question3)
+    print(answer3)
+    correctAnswer3 = "Hmm, I'm not sure."
+    evaluate_answer(answer3, correctAnswer3)
+
 
 if __name__ == "__main__":
     # extract_tables_from_pdf("2017-NEC-Code-2-table11AandB.pdf")
