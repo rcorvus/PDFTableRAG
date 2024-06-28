@@ -16,7 +16,7 @@ What is the Maximum overcurrent protection (amperes) for a Direct-Current Not In
 The AI correctly answers with this information from Table 11 (B) (the answer is correct: 100/V max):  
 "The Maximum overcurrent protection (amperes) for a Direct-Current Not Inherently Limited Power Source (Overcurrent Protection Required) with a source voltage of 75 volts is 100/V, max."  
 
-##How to measure success?
+## How to measure success?
 
 Since the answer comes back in a conversational sentence, we can do a quick call to ChatGpt to compare the answers given to the correct answer.
 
