@@ -34,7 +34,7 @@ Which correctly evaluates the following:
 Yes, the given answer and the correct answer have the same information. They both state the maximum overcurrent protection in amperes for a Direct-Current Not Inherently Limited Power Source with a source voltage of 75 volts, which is 100/V, max.  
 ```
 
-It can also evaluate a correct "Hmm, I'm not sure" response. 
+It can also evaluate a correct "Hmm, I'm not sure" response.  
 For example, notice that the system replied with "I don't know" and the evaluator was given "Hmm, I'm not sure" as the correct response, but it still understood that they were the same response:  
 
 What is the airspeed velocity of an unladen African swallow?  
