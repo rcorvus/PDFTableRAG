@@ -4,7 +4,7 @@ from unstructured_client.models.errors import SDKError
 from unstructured.staging.base import dict_to_elements
 
 client = UnstructuredClient(
-    api_key_auth="o6C3mzZ1BZ0kTA0KhWsqX83xWRnFJ0",
+    api_key_auth="your_api_key_here",
     server_url="https://api.unstructuredapp.io",
 )
 
