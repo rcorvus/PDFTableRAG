@@ -1,12 +1,10 @@
 from unstructured_client import UnstructuredClient
 from unstructured_client.models import shared
 from unstructured_client.models.errors import SDKError
-
 from unstructured.staging.base import dict_to_elements
-from langchain.chains import RetrievalQA
 
 client = UnstructuredClient(
-    api_key_auth="YOUR_API_KEY",
+    api_key_auth="o6C3mzZ1BZ0kTA0KhWsqX83xWRnFJ0",
     server_url="https://api.unstructuredapp.io",
 )
 
@@ -16,6 +14,8 @@ from langchain_openai import OpenAIEmbeddings
 folder_path = "db"
 embeddings = OpenAIEmbeddings()
 vector_store = Chroma(persist_directory=folder_path, embedding_function=embeddings)
+
+from langchain.llms import OpenAI
 
 def extract_tables_from_pdf(filename):
     with open(filename, "rb") as f:
@@ -71,6 +71,14 @@ def embed_vector_store(document):
         documents=documents, embedding=embeddings, persist_directory=folder_path
     )
     vector_store.persist()
+    
+
+def evaluate_answer(given_answer, correct_answer):
+    openai_client = OpenAI(temperature=0.0, max_tokens=100)
+    evaluator_prompt = f"Does the Given answer have the same information as the Correct answer? \nGiven answer: {given_answer}\nCorrect answer: {correct_answer}"
+    response = openai_client(prompt=evaluator_prompt)
+    print(evaluator_prompt)
+    print(response)
 
 def ask_vector_store():
     retriever = vector_store.as_retriever(
@@ -81,6 +89,7 @@ def ask_vector_store():
     from langchain_openai import OpenAI
     from langchain.chains import ConversationalRetrievalChain, LLMChain
     from langchain.chains.qa_with_sources import load_qa_with_sources_chain
+
 
     template = """You are an AI assistant for answering questions about the Electrical Code.
     You are given the following extracted parts of a long document and a question. Provide a conversational answer.
@@ -104,6 +113,7 @@ def ask_vector_store():
         return_source_documents=True
     )
 
+
     question1 = "What is the Current limitations of an Alternating-Current Inherently Limited Power Source (Overcurrent Protection Not Required) with a source voltage of 10 volts?"
     answer1 = qa_chain.invoke({
         "question": question1,
@@ -122,26 +132,8 @@ def ask_vector_store():
 
     print(question2)
     print(answer2)
-
-    # filter_retriever = vector_store.as_retriever(
-    #     search_type="similarity",
-    #     search_kwargs={"k": 1, "filter": {"source": "2017-NEC-Code-2-part-5.pdf"}}
-    # )
-    # filter_chain = ConversationalRetrievalChain(
-    #     retriever=filter_retriever,
-    #     question_generator=question_generator_chain,
-    #     combine_docs_chain=doc_chain,
-    # )
-
-    # question3 = "What is the Maximum overcurrent protection (amperes) for a Not Inherently Limited Power Source (Overcurrent Protection Required) with a source voltage of 75 volts?"
-    # answer3 = filter_chain.invoke({
-    #     "question": question3,
-    #     "chat_history": [],
-    #     "filter": filter,
-    # })["answer"]
-
-    # print(question3)
-    # print(answer3)
+    correctAnswer2 = "The Maximum overcurrent protection in amperes for a Direct-Current Not Inherently Limited Power Source (requiring Overcurrent Protection) with a source voltage of 75 volts is 100/V, max."
+    evaluate_answer(answer2, correctAnswer2)
 
 
 if __name__ == "__main__":
