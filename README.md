@@ -37,6 +37,12 @@ Yes, the given answer and the correct answer have the same information. They bot
 It can also evaluate a correct "Hmm, I'm not sure" response. 
 For example:  
 
+What is the airspeed velocity of an unladen African swallow?  
+```
+I don't know.  
+SOURCES: 2017-NEC-Code-2-table11AandB.pdf
+```
+
 Does the Given answer have the same information as the Correct answer?  
 ```
 Given answer:  I don't know.  
