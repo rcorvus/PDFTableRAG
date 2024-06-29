@@ -147,6 +147,13 @@ def ask_vector_store():
     correctAnswer3 = "Hmm, I'm not sure."
     evaluate_answer(answer3, correctAnswer3)
 
+    # What if we got an answer that was incorrect by only one character, would our ChatGpt evaluator catch it?
+    incorrectAnswer1 = "The current limitation for an Alternating-Current Inherently Limited Power Source with a source voltage of 10 volts is 9.0."
+    correctAnswer1 = "The current limitation for an Alternating-Current Inherently Limited Power Source with a source voltage of 10 volts is 8.0."
+    print(question1)
+    print(incorrectAnswer1)
+    evaluate_answer(incorrectAnswer1, correctAnswer1)
+
 
 if __name__ == "__main__":
     # extract_tables_from_pdf("2017-NEC-Code-2-table11AandB.pdf")
