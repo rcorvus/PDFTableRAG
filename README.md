@@ -33,9 +33,7 @@ Which correctly evaluates the following:
 ```
 Yes, the given answer and the correct answer have the same information. They both state the maximum overcurrent protection in amperes for a Direct-Current Not Inherently Limited Power Source with a source voltage of 75 volts, which is 100/V, max.  
 ```
-### Would the ChatGpt evaluator be able to correctly grade an "I don't know" answer?
-It can also evaluate a correct "Hmm, I'm not sure" response.  
-For example, notice that the system replied with "I don't know" and the evaluator was given "Hmm, I'm not sure" as the correct response, but it still understood that they were the same response:  
+### Would the ChatGpt evaluator be able to correctly grade an "I don't know" or "Hmm, I'm not sure" answer?
 
 What is the capital of France?  
 ```
@@ -49,6 +47,8 @@ Given answer:  I don't know.
 SOURCES: 2017-NEC-Code-2-table11AandB.pdf  
 Correct answer: Hmm, I'm not sure.  
 ```
+
+Notice that the system replied with "I don't know" and the evaluator was given "Hmm, I'm not sure" as the correct response, but it still understood that they were the same response:  
 ```
 Yes, both answers convey the same information that the person is unsure or does not know the answer.
 ```
@@ -63,13 +63,15 @@ Incorrect answer:
 ```
 The current limitation for an Alternating-Current Inherently Limited Power Source with a source voltage of 10 volts is 9.0.
 ```  
-
-Notice that the ChatGpt evaluator correctly says "No" the given answer is not correct, and correctly states that it expects an 8.0 instead of the 9.0:  
+ 
 Does the Given answer have the same information as the Correct answer?  
 ```
 Given answer: The current limitation for an Alternating-Current Inherently Limited Power Source with a source voltage of 10 volts is 9.0.
 Correct answer: The current limitation for an Alternating-Current Inherently Limited Power Source with a source voltage of 10 volts is 8.0.
+```
 
+Notice that the ChatGpt evaluator correctly says "No" the given answer is not correct, and correctly states that it expects an 8.0 instead of the 9.0:  
+```
 No, the given answer states that the current limitation is 9.0, while the correct answer states that it is 8.0. These are two different values and therefore do not have the same information.
 ```
 
